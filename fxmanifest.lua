@@ -20,8 +20,13 @@ shared_scripts {
     'shared/functions/debug.lua',
     'shared/functions/utils.lua',
     'shared/functions/locale.lua',
+    'shared/functions/callback.lua',
 
     'shared/bridge.lua'
+}
+
+server_scripts {
+    'server/callback.lua'
 }
 
 client_scripts {
@@ -35,5 +40,6 @@ client_scripts {
     'client/lib/menu/panels/*.lua',
     'client/lib/menu/windows/*.lua',
 
-    'client/menus/*.lua'
+    'client/menus/*.lua',
+    'client/main.lua'
 }

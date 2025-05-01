@@ -9,7 +9,7 @@ local moduleLoaded = {}
 local function isResourceActive(resource)
     if not resource or type(resource) ~= 'string' then return end
 
-    debug('Checking if resource is active ' .. resource)
+    _debug('Checking if resource is active ' .. resource)
 
     return GetResourceState(resource) == 'started'
 end

@@ -18,5 +18,5 @@ local function info(message)
     return print('^4Info: ' .. message .. ' ^7')
 end
 
-_ENV.debug = debug
-_ENV.info = info
+_ENV._debug = debug
+_ENV._info = info

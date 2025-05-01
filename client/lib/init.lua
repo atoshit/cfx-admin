@@ -22,4 +22,3 @@ setmetatable({}, {__index = Panels})
 Items = {}
 
 setmetatable({}, {__index = Items})
-
