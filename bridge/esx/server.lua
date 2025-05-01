@@ -1,3 +1,7 @@
 local ESX = exports['es_extended']:getSharedObject()
 
-return {}
+return {
+    test = function()
+        print('test')
+    end
+}

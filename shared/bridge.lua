@@ -1,4 +1,4 @@
-local SERVICE = (IsDuplicityVersion() and 'server') or 'client'
+local SERVICE <const> = (IsDuplicityVersion() and 'server') or 'client'
 
 if utils.isResourceActive('es_extended') then
     bridge = utils.require('bridge.esx.' .. SERVICE)

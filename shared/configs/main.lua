@@ -1,7 +1,7 @@
 ---@class Config
 ---@field debug boolean
-local config <const> = {
+local CONFIG <const> = {
     debug = true,
 }
 
-_ENV.config = config
+_ENV.config = CONFIG
