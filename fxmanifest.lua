@@ -8,7 +8,7 @@ description 'Completely admin menu for FiveM'
 version '0.0.1'
 
 shared_scripts {
-    'shared/configs/main.lua',
+    'shared/configs/*.lua',
 
     'shared/functions/debug.lua',
     'shared/functions/utils.lua',
