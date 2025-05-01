@@ -9,7 +9,9 @@ version '0.0.1'
 
 files {
     'bridge/esx/*.lua',
-    'bridge/qbcore/*.lua'
+    'bridge/qbcore/*.lua',
+    
+    'locales/*.lua'
 }
 
 shared_scripts {
@@ -17,6 +19,7 @@ shared_scripts {
 
     'shared/functions/debug.lua',
     'shared/functions/utils.lua',
+    'shared/functions/locale.lua',
 
     'shared/bridge.lua'
 }

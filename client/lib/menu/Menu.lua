@@ -67,7 +67,7 @@ function UIMenu:Constructor(Title, Subtitle, X, Y, TextureDictionary, TextureNam
     self.Display.InstructionalButton = menu.displayInstructionalButton or menu.displayInstructionalButton == nil;
     self.Display.PageCounter = menu.displayPageCounter or menu.displayPageCounter == nil;
 
-    self.Title = menu.titles or Title or ""
+    self.Title = Title or "Menu"
     self.TitleFont = menu.titleFont or 6
     self.TitleScale = 1.2
     self.Subtitle = Subtitle or ""
