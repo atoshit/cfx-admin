@@ -17,7 +17,7 @@ version '0.0.1'
 dependency 'oxmysql'
 
 files {
-    -- TODO: Add file not read at resource startup and read at their use (imports/)
+    -- TODO: Add file not read at resource startup and read at their use (modules/)
 }
 
 shared_scripts {
