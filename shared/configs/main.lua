@@ -4,6 +4,7 @@
 local CONFIG <const> = {
     debug = true,
     locale = 'fr', -- language (fr, en ...)
+    deferrals = true,
 
     -- Menu 
     menu = {

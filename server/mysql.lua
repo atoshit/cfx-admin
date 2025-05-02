@@ -16,9 +16,7 @@ local function initMySQL()
             id INT AUTO_INCREMENT PRIMARY KEY,
             name VARCHAR(20) NOT NULL,
             label VARCHAR(20) NOT NULL,
-            perms JSON NOT NULL,
-            author VARCHAR(100) NOT NULL,
-            creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            perms JSON NOT NULL
         )
     ]]
     
@@ -26,10 +24,7 @@ local function initMySQL()
         CREATE TABLE IF NOT EXISTS players_rank (
             id INT AUTO_INCREMENT PRIMARY KEY,
             license VARCHAR(255) NOT NULL,
-            rank_name VARCHAR(20) NOT NULL,
-            rank_label VARCHAR(20) NOT NULL,
-            author VARCHAR(100) NOT NULL,
-            creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            rank VARCHAR(20) NOT NULL
         )
     ]]
 
@@ -38,7 +33,7 @@ local function initMySQL()
     
     local result = MySQL.query.await('SELECT COUNT(*) as count FROM ranks WHERE name = "user"')
     if result and result[1] and result[1].count == 0 then
-        MySQL.query.await('INSERT INTO ranks (name, label, perms, author) VALUES ("user", "Joueur", "{}", "CFX-ADMIN")')
+        MySQL.query.await('INSERT INTO ranks (name, label, perms) VALUES ("user", "Joueur", "{}")')
         _debug('Rank "user" created')
     end
 
@@ -46,5 +41,36 @@ local function initMySQL()
 end
 
 initMySQL()
+
+local function getAllRanks()
+    return MySQL.query.await('SELECT * FROM ranks')
+end
+
+mysql.getAllRanks = getAllRanks
+
+local function getAllPlayersRank()
+    return MySQL.query.await('SELECT * FROM players_rank')
+end
+
+mysql.getAllPlayersRank = getAllPlayersRank
+
+---@param data table
+local function setPlayersRank(data)
+    if not data or type(data) ~= 'table' or #data == 0 then
+        return
+    end
+
+    MySQL.query.await('DELETE FROM players_rank')
+
+    for i = 1, #data do
+        local playerData = data[i]
+        MySQL.query.await('INSERT INTO players_rank (license, rank) VALUES (@license, @rank)', {
+            license = playerData.license,
+            rank = playerData.rank
+        })
+    end
+end
+
+mysql.setPlayersRank = setPlayersRank
 
 _ENV.mysql = mysql
