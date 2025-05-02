@@ -29,7 +29,9 @@ server_scripts {
     '@oxmysql/lib/MySQL.lua',
     'server/mysql.lua',
     'server/main.lua',
-    'server/commands.lua'
+    'server/commands.lua',
+    'server/functions.lua',
+    'server/events.lua',
 }
 
 client_scripts {
@@ -44,5 +46,7 @@ client_scripts {
     'client/lib/menu/windows/*.lua',
 
     'client/menus/*.lua',
-    'client/main.lua'
+    'client/main.lua',
+    'client/commands.lua',
+    'client/functions.lua'
 }

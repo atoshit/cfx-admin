@@ -1,3 +1,4 @@
+
 local ranks = {}
 local players_rank = {}
 
@@ -88,3 +89,4 @@ AddEventHandler('onResourceStop', function(resourceName)
 end)
 
 _ENV.ranks = ranks
+_ENV.players_rank = players_rank

@@ -2,19 +2,19 @@
 ---@field debug boolean
 ---@field locale string
 local CONFIG <const> = {
-    debug = true,
+    debug = true, -- if true, all logs will be displayed in the console
     locale = 'fr', -- language (fr, en ...)
-    deferrals = true,
+    deferrals = true, -- if true, the player will be redirected to the deferrals menu in connection
 
     -- Menu 
     menu = {
-        openKey = 'f10',
-        openCommand = 'admin'
+        openKey = 'f10', -- key to open the menu
+        openCommand = 'admin' -- command to open the menu
     },
 
     owners = {
-       -- 'steam:110000100000000',
-       -- 'c7f113abad30c55e970fdd23e075edf7bcb29cc2'
+        'license:2d74177955920fe1366d4cd9b4e6a9f5d95dca14', -- license of the owners
+        -- add more owners here
     }
 }
 
