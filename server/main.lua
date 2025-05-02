@@ -84,8 +84,7 @@ AddEventHandler('onResourceStop', function(resourceName)
         return
     end
 
-    print(json.encode(players_rank))
-    mysql.setPlayersRank(players_rank)
+    mysql.updatePlayersRankCache(players_rank)
 end)
 
 _ENV.ranks = ranks

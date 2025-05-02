@@ -55,21 +55,27 @@ end
 mysql.getAllPlayersRank = getAllPlayersRank
 
 ---@param data table
-local function setPlayersRank(data)
-    if not data or type(data) ~= 'table' or #data == 0 then
+local function updatePlayersRankCache(data)
+    if not data or type(data) ~= 'table' or not next(data) then
         return
     end
 
-    MySQL.query.await('DELETE FROM players_rank')
-
     for k, v in pairs(data) do
-        MySQL.query.await('INSERT INTO players_rank (license, rank) VALUES (@license, @rank)', {
-            license = k,
-            rank = v.rank
-        })
+        local queries = {
+            {
+                query = 'DELETE FROM players_rank WHERE license = @license',
+                values = { license = k }
+            },
+            {
+                query = 'INSERT INTO players_rank (license, rank) VALUES (@license, @rank)',
+                values = { license = k, rank = v.rank }
+            }
+        }
+        
+        MySQL.transaction(queries)
     end
 end
 
-mysql.setPlayersRank = setPlayersRank
+mysql.updatePlayersRankCache = updatePlayersRankCache
 
 _ENV.mysql = mysql
