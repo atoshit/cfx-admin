@@ -62,11 +62,10 @@ local function setPlayersRank(data)
 
     MySQL.query.await('DELETE FROM players_rank')
 
-    for i = 1, #data do
-        local playerData = data[i]
+    for k, v in pairs(data) do
         MySQL.query.await('INSERT INTO players_rank (license, rank) VALUES (@license, @rank)', {
-            license = playerData.license,
-            rank = playerData.rank
+            license = k,
+            rank = v.rank
         })
     end
 end

@@ -18,7 +18,8 @@ AddEventHandler('onResourceStart', function(resourceName)
             local rank = rank_result[i]
             ranks[rank.name] = {
                 label = rank.label,
-                perms = json.decode(rank.perms)
+                perms = json.decode(rank.perms),
+                author = rank.author
             }
 
             loaded += 1
