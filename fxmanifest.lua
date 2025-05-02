@@ -19,9 +19,9 @@ dependency 'oxmysql'
 files {
     'configs/*.lua',
 
-    'modules/**/client.lua',
-    'modules/**/shared.lua'
-    'modules/**/server.lua'
+    --'modules/**/client.lua',
+    'modules/**/shared.lua',
+    --'modules/**/server.lua'
 }
 
 shared_scripts {
@@ -46,5 +46,8 @@ client_scripts {
 }
 
 server_scripts {
-    -- TODO: Add server scripts
+    '@oxmysql/lib/MySQL.lua',
+
+    'sources/server/mysql/*.lua',
+    'sources/server/handlers/*.lua'
 }

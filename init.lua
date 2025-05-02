@@ -1,4 +1,5 @@
 local SERVICE <const> = (IsDuplicityVersion() and 'server') or 'client'
+local RESOURCE_NAME <const> = GetCurrentResourceName()
 
 local module_loaded = {}
 
@@ -47,6 +48,7 @@ end
 local CORE_METADATA <const> = {
     -- Variables
     service = SERVICE,
+    resource = RESOURCE_NAME,
 
     -- Functions
     LoadConfig = loadConfig,
@@ -59,6 +61,7 @@ local CORE_METADATA <const> = {
 ---@field Require fun(path: string): any
 ---@field IsResourceStarted fun(resource: string): boolean
 ---@field service string
+---@field resource string
 local core = {}
 
 setmetatable(core, {
@@ -67,3 +70,5 @@ setmetatable(core, {
         rawset(self, key, value)
     end
 })
+
+_ENV.core = core
