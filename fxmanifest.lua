@@ -19,6 +19,8 @@ dependency 'oxmysql'
 files {
     'configs/*.lua',
 
+    'bridges/**/*.lua',
+
     --'modules/**/client.lua',
     'modules/**/shared.lua',
     --'modules/**/server.lua'

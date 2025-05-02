@@ -45,6 +45,16 @@ local function isResourceStarted(resource)
     return GetResourceState(resource) == 'started'
 end
 
+local function loadBridge()
+    if isResourceStarted('es_extended') then
+        return callModule('bridge.esx.' .. SERVICE)
+    elseif isResourceStarted('qb-core') then
+        return callModule('bridge.qb-core.' .. SERVICE)
+    else
+        return error('No framework supported found')
+    end
+end
+
 local CORE_METADATA <const> = {
     -- Variables
     service = SERVICE,
@@ -53,13 +63,15 @@ local CORE_METADATA <const> = {
     -- Functions
     LoadConfig = loadConfig,
     Require = callModule,
-    IsResourceStarted = isResourceStarted
+    IsResourceStarted = isResourceStarted,
+    LoadBridge = loadBridge
 }
 
 ---@class Core
 ---@field LoadConfig fun(file: string): any
 ---@field Require fun(path: string): any
 ---@field IsResourceStarted fun(resource: string): boolean
+---@field LoadBridge fun(): any
 ---@field service string
 ---@field resource string
 local core = {}
