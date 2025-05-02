@@ -21,7 +21,7 @@ files {
 }
 
 shared_scripts {
-    -- TODO: Add shared scripts
+    'init.lua'
 }
 
 client_scripts {

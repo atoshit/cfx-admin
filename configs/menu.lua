@@ -1,5 +1,5 @@
 return {
-    formatColor = "~p~", -- color of the menu
+    formatColor = "~p~", -- color format
     showHeader = true, -- if true, the header will be displayed
     displayGlare = false, -- if true, the glare will be displayed
     displaySubtitle = true, -- if true, the subtitle will be displayed
