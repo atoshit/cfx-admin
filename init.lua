@@ -84,3 +84,12 @@ setmetatable(core, {
 })
 
 _ENV.core = core
+
+if SERVICE == 'client' then
+    local function registerMenu()
+        core.menus = {}
+        return loadModule('sources.client.menus._init')
+    end
+
+    core.RegisterMenu = registerMenu
+end
