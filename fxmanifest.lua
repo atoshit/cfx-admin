@@ -17,11 +17,28 @@ version '0.0.1'
 dependency 'oxmysql'
 
 files {
-    -- TODO: Add file not read at resource startup and read at their use (modules/)
+    'configs/*.lua',
+
+    'modules/**/client.lua',
+    'modules/**/shared.lua'
+    'modules/**/server.lua'
 }
 
 shared_scripts {
     'init.lua'
+}
+
+-- RageUI library
+client_scripts {
+    'lib/init.lua',
+    'lib/menu/RageUI.lua',
+    'lib/menu/Menu.lua',
+    'lib/menu/MenuController.lua',
+    'lib/components/*.lua',
+    'lib/menu/elements/*.lua',
+    'lib/menu/items/*.lua',
+    'lib/menu/panels/*.lua',
+    'lib/menu/windows/*.lua',
 }
 
 client_scripts {

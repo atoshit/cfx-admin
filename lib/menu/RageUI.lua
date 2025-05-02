@@ -680,6 +680,7 @@ local colors = {
     orange = "~o~"
 };
 
+local Config = core.LoadConfig('menu')
 function RageUI.ColorFormat()
-    return colors[menu.formatColor] or "~b~"
+    return colors[Config.formatColor] or "~b~"
 end

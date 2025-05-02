@@ -27,6 +27,7 @@ end
 
 local Menus = {};
 local SubMenus = {};
+local Config = core.LoadConfig('menu')
 
 ---@class UIMenu
 UIMenu = setmetatable({}, {
@@ -59,16 +60,16 @@ function UIMenu:Constructor(Title, Subtitle, X, Y, TextureDictionary, TextureNam
 
     self.InstructionalButtons = {}
 
-    self.Display.Header = menu.showHeader or menu.showHeader == nil;
-    self.Display.Glare = menu.displayGlare or menu.displayGlare == nil;
-    self.Display.Subtitle = menu.displaySubtitle or menu.displaySubtitle == nil;
-    self.Display.Background = menu.displayBackground or menu.displayBackground == nil;
-    self.Display.Navigation = menu.displayNavigationBar or menu.displayNavigationBar == nil;
-    self.Display.InstructionalButton = menu.displayInstructionalButton or menu.displayInstructionalButton == nil;
-    self.Display.PageCounter = menu.displayPageCounter or menu.displayPageCounter == nil;
+    self.Display.Header = Config.showHeader or Config.showHeader == nil;
+    self.Display.Glare = Config.displayGlare or Config.displayGlare == nil;
+    self.Display.Subtitle = Config.displaySubtitle or Config.displaySubtitle == nil;
+    self.Display.Background = Config.displayBackground or Config.displayBackground == nil;
+    self.Display.Navigation = Config.displayNavigationBar or Config.displayNavigationBar == nil;
+    self.Display.InstructionalButton = Config.displayInstructionalButton or Config.displayInstructionalButton == nil;
+    self.Display.PageCounter = Config.displayPageCounter or Config.displayPageCounter == nil;
 
     self.Title = Title or "Menu"
-    self.TitleFont = menu.titleFont or 6
+    self.TitleFont = Config.titleFont or 6
     self.TitleScale = 1.2
     self.Subtitle = Subtitle or ""
     self.SubtitleHeight = -37
@@ -82,13 +83,13 @@ function UIMenu:Constructor(Title, Subtitle, X, Y, TextureDictionary, TextureNam
     self.Controls = RageUI.Settings.Controls
     self.Index = 1
     self.Sprite = {
-        Dictionary = menu.textureDictionary or TextureDictionary or "commonmenu",
-        Texture = menu.textureName or TextureName or "interaction_bgd",
+        Dictionary = Config.textureDictionary or TextureDictionary or "commonmenu",
+        Texture = Config.textureName or TextureName or "interaction_bgd",
         Color = {
-            R = menu.color.R or R or 255,
-            G = menu.color.G or G or 255,
-            B = menu.color.B or B or 255,
-            A = menu.color.A or A or 255
+            R = Config.color.R or R or 255,
+            G = Config.color.G or G or 255,
+            B = Config.color.B or B or 255,
+            A = Config.color.A or A or 255
         }
     }
     self.Rectangle = nil
