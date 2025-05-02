@@ -18,8 +18,7 @@ AddEventHandler('onResourceStart', function(resourceName)
             local rank = rank_result[i]
             ranks[rank.name] = {
                 label = rank.label,
-                perms = json.decode(rank.perms),
-                author = rank.author
+                perms = json.decode(rank.perms)
             }
 
             loaded += 1
@@ -85,6 +84,7 @@ AddEventHandler('onResourceStop', function(resourceName)
     end
 
     mysql.updatePlayersRankCache(players_rank)
+    mysql.updateRanksCache(ranks)
 end)
 
 _ENV.ranks = ranks
