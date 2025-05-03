@@ -19,7 +19,7 @@ dependency 'oxmysql'
 files {
     'configs/*.lua',
 
-    'bridges/**/*.lua',
+    'bridge/**/*.lua',
 
     --'modules/**/client.lua',
     'modules/**/shared.lua',
@@ -43,6 +43,8 @@ client_scripts {
     'lib/menu/items/*.lua',
     'lib/menu/panels/*.lua',
     'lib/menu/windows/*.lua',
+
+    'sources/client/main.lua'
 }
 
 client_scripts {
@@ -52,6 +54,7 @@ client_scripts {
 server_scripts {
     '@oxmysql/lib/MySQL.lua',
 
+    'sources/server/classes/*.lua',
     'sources/server/mysql/*.lua',
     'sources/server/handlers/*.lua'
 }
