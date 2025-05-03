@@ -30,5 +30,7 @@ AddEventHandler('onResourceStart', function(resource)
     Cache:set('admin_ranks', admin_ranks)
     Cache:set('admin_staffs', admin_staffs)
 
-    print('Admin ranks and staffs cached')
+    local LOG <const> = core.Require('modules.debug.shared')
+
+    LOG.debug('Admin ranks and staffs cached')
 end)
