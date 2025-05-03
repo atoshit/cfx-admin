@@ -46,11 +46,8 @@ client_scripts {
     'lib/menu/panels/*.lua',
     'lib/menu/windows/*.lua',
 
-    'sources/client/main.lua'
-}
-
-client_scripts {
-    -- TODO: Add client scripts
+    'sources/client/main.lua',
+    'sources/client/cache.lua'
 }
 
 server_scripts {

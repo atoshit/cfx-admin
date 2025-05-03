@@ -1,4 +1,6 @@
-return {
+return {  
+    key = 'f10', -- key to open the menu
+    command = 'admin', -- command to open the menu
     formatColor = "~p~", -- color format
     showHeader = true, -- if true, the header will be displayed
     displayGlare = true, -- if true, the glare will be displayed

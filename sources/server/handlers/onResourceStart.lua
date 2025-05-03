@@ -9,21 +9,26 @@ AddEventHandler('onResourceStart', function(resource)
     local ranks = core.mysql.getAllRanks()
     local staffs = core.mysql.getAllStaffs()    
 
+    local admin_ranks = {}
     for i = 1, #ranks do
         local rank = ranks[i]
-        Cache:set('admin_ranks', rank.name, {
+        admin_ranks[rank.name] = {
             label = rank.label,
             permissions = json.decode(rank.permissions),
             power = rank.power
-        })
+        }
     end
 
+    local admin_staffs = {}
     for i = 1, #staffs do
         local staff = staffs[i]
-        Cache:set('admin_staffs', staff.license, {
+        admin_staffs[staff.license] = {
             rank = staff.rank
-        })
+        }
     end
+
+    Cache:set('admin_ranks', admin_ranks)
+    Cache:set('admin_staffs', admin_staffs)
 
     print('Admin ranks and staffs cached')
 end)
