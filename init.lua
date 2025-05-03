@@ -89,6 +89,7 @@ if SERVICE == 'client' then
     ---@param menu string
     ---@return any
     local function loadMenu(menu)
+        core.menus = {}
         return callModule('sources.client.menus.' .. menu)
     end
 

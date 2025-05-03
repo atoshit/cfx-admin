@@ -1,17 +1,17 @@
-TESTMENU = RageUI.AddMenu("test", "test")
+local LOCALE <const> = core.Require('modules.locale.shared')
+local MAIN_MENU <const> = RageUI.AddMenu(LOCALE('menu.title'), LOCALE('menu.description'))
 
-local staff_mode = false
-TESTMENU:IsVisible(function(Items)
-    Items:Checkbox("test", "test", staff_mode, {}, {
+core.menus['main'] = MAIN_MENU
+
+MAIN_MENU:IsVisible(function(Items)
+    Items:Checkbox(LOCALE('menu.staffmode.title'), LOCALE('menu.staffmode.description'), core.staffMode, {}, {
         onChecked = function()
-            print('checked')
-            staff_mode = true
+            core.staffMode = true
         end,
         onUnChecked = function()
-            print('unchecked')
-            staff_mode = false
+            core.staffMode = false
         end
     })
 end)
 
-return TESTMENU
+return MAIN_MENU

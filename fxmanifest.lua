@@ -25,7 +25,9 @@ files {
     'modules/**/shared.lua',
     --'modules/**/server.lua'
 
-    'sources/client/menus/*.lua'
+    'sources/client/menus/*.lua',
+
+    'locales/*.lua'
 }
 
 shared_scripts {
