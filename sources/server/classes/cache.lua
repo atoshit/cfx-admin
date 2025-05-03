@@ -5,7 +5,7 @@
 ---@field delete fun(cacheName: string, key: any): boolean
 ---@field clear fun(cacheName: string): boolean
 ---@field exists fun(cacheName: string): boolean
-local Cache = {}
+_ENV.Cache = {}
 
 local caches = {}
 

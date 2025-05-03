@@ -12,7 +12,7 @@ local function initDatabase()
             name VARCHAR(20) NOT NULL PRIMARY KEY,
             label VARCHAR(20) NOT NULL,
             permissions TEXT NOT NULL,
-            power INT(100) NOT NULL DEFAULT '50'
+            power INT(3) NOT NULL DEFAULT '50'
         )
     ]]
 

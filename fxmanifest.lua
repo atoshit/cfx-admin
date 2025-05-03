@@ -58,5 +58,6 @@ server_scripts {
 
     'sources/server/classes/*.lua',
     'sources/server/mysql/*.lua',
-    'sources/server/handlers/*.lua'
+    'sources/server/handlers/*.lua',
+    'sources/server/commands.lua'
 }
