@@ -33,4 +33,18 @@ AddEventHandler('onResourceStart', function(resource)
     local LOG <const> = core.Require('modules.debug.shared')
 
     LOG.debug('Admin ranks and staffs cached')
+
+    for i = 1, #GetPlayers() do
+        local id = GetPlayers()[i]
+        local license = GetPlayerIdentifierByType(id, 'license')
+
+        if Cache:get('admin_staffs')[license] then
+            TriggerClientEvent('core:admin:setStaff', id, license, Cache:get('admin_staffs')[license].rank)
+        end
+    end
+end)
+
+RegisterCommand('getcache', function()
+    print(json.encode(Cache:get('admin_ranks')))
+    print(json.encode(Cache:get('admin_staffs')))
 end)

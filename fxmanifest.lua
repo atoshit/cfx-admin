@@ -18,15 +18,9 @@ dependency 'oxmysql'
 
 files {
     'configs/*.lua',
-
     'bridge/**/*.lua',
-
-    --'modules/**/client.lua',
     'modules/**/shared.lua',
-    --'modules/**/server.lua'
-
     'sources/client/menus/*.lua',
-
     'locales/*.lua'
 }
 
@@ -34,8 +28,16 @@ shared_scripts {
     'init.lua'
 }
 
--- RageUI library
+server_scripts {
+    '@oxmysql/lib/MySQL.lua',
+
+    'sources/server/classes/*.lua',
+    'sources/server/mysql/*.lua',
+    'sources/server/handlers/*.lua',
+}
+
 client_scripts {
+    -- RageUI library
     'lib/init.lua',
     'lib/menu/RageUI.lua',
     'lib/menu/Menu.lua',
@@ -46,15 +48,6 @@ client_scripts {
     'lib/menu/panels/*.lua',
     'lib/menu/windows/*.lua',
 
-    'sources/client/main.lua',
-    'sources/client/cache.lua'
-}
-
-server_scripts {
-    '@oxmysql/lib/MySQL.lua',
-
-    'sources/server/classes/*.lua',
-    'sources/server/mysql/*.lua',
-    'sources/server/handlers/*.lua',
-    'sources/server/commands.lua'
+    'sources/client/cache.lua',
+    'sources/client/main.lua'
 }
